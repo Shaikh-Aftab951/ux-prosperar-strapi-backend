@@ -20,8 +20,10 @@
     "@strapi/plugin-cloud": "5.29.0",
     "@strapi/plugin-users-permissions": "5.29.0",
     "@strapi/strapi": "5.29.0",
+    "date-fns": "^4.1.0",
     "fs-extra": "^10.0.0",
     "mime-types": "^2.1.27",
+    "mysql2": "^3.16.0",
     "pg": "8.8.0",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
@@ -41,5 +43,6 @@
   "strapi": {
     "uuid": "b5602e53-f194-4dba-9edc-f941c5942213",
     "installId": "df7b888182ef6482f677ab269af94e9e2869571cf6a535b9586ef2f6f00157a7"
-  }
+  },
+  "packageManager": "yarn@1.22.22+sha512.a6b2f7906b721bba3d67d4aff083df04dad64c399707841b7acf00f6b133b7ac24255f2652fa22ae3534329dc6180534e98d17432037ff6fd140556e2bb3137e"
 }
