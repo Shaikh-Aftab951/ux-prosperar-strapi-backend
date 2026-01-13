@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_social_socials",
+  "info": {
+    "displayName": "social"
+  },
+  "options": {},
+  "attributes": {
+    "linkedin": {
+      "type": "string"
+    },
+    "facebook": {
+      "type": "string"
+    },
+    "youtube": {
+      "type": "string"
+    }
+  },
+  "config": {}
+}

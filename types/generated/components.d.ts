@@ -10,6 +10,17 @@ export interface SharedHeadlineItem extends Struct.ComponentSchema {
   };
 }
 
+export interface SharedButtons extends Struct.ComponentSchema {
+  collectionName: 'components_shared_buttons';
+  info: {
+    displayName: 'buttons';
+  };
+  attributes: {
+    href: Schema.Attribute.String;
+    label: Schema.Attribute.String;
+  };
+}
+
 export interface SharedMedia extends Struct.ComponentSchema {
   collectionName: 'components_shared_media';
   info: {
@@ -72,15 +83,29 @@ export interface SharedSlider extends Struct.ComponentSchema {
   };
 }
 
+export interface SocialSocial extends Struct.ComponentSchema {
+  collectionName: 'components_social_socials';
+  info: {
+    displayName: 'social';
+  };
+  attributes: {
+    facebook: Schema.Attribute.String;
+    linkedin: Schema.Attribute.String;
+    youtube: Schema.Attribute.String;
+  };
+}
+
 declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
       'shared.headline-item': SharedHeadlineItem;
+      'shared.buttons': SharedButtons;
       'shared.media': SharedMedia;
       'shared.quote': SharedQuote;
       'shared.rich-text': SharedRichText;
       'shared.seo': SharedSeo;
       'shared.slider': SharedSlider;
+      'social.social': SocialSocial;
     }
   }
 }

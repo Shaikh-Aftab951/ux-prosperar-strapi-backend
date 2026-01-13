@@ -714,6 +714,73 @@ export interface ApiMarqueeMarquee extends Struct.SingleTypeSchema {
   };
 }
 
+export interface ApiHeroSectionHeroSection extends Struct.SingleTypeSchema {
+  collectionName: 'hero_sections';
+  info: {
+    displayName: 'HeroSection';
+    pluralName: 'hero-sections';
+    singularName: 'hero-section';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    agencyLabel: Schema.Attribute.String;
+    brandName: Schema.Attribute.String;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    description: Schema.Attribute.RichText;
+    heading: Schema.Attribute.String;
+    homeContactUs: Schema.Attribute.Component<'shared.buttons', true>;
+    homeVideo: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::hero-section.hero-section'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    subHeading: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiTeamMemberTeamMember extends Struct.CollectionTypeSchema {
+  collectionName: 'team_members';
+  info: {
+    displayName: 'TeamMembers';
+    pluralName: 'team-members';
+    singularName: 'team-member';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    bio: Schema.Attribute.String;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    displayOrder: Schema.Attribute.Integer;
+    image: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::team-member.team-member'
+    > &
+      Schema.Attribute.Private;
+    name: Schema.Attribute.String;
+    publishedAt: Schema.Attribute.DateTime;
+    role: Schema.Attribute.String;
+    socialLinks: Schema.Attribute.Component<'social.social', true>;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface PluginContentReleasesRelease
   extends Struct.CollectionTypeSchema {
   collectionName: 'strapi_releases';
@@ -1233,6 +1300,8 @@ declare module '@strapi/strapi' {
       'api::global.global': ApiGlobalGlobal;
       'api::marquee-logo.marquee-logo': ApiMarqueeLogoMarqueeLogo;
       'api::marquee.marquee': ApiMarqueeMarquee;
+      'api::hero-section.hero-section': ApiHeroSectionHeroSection;
+      'api::team-member.team-member': ApiTeamMemberTeamMember;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;
       'plugin::i18n.locale': PluginI18NLocale;
