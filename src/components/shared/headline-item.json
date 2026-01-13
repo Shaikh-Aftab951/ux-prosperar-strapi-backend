@@ -1,0 +1,13 @@
+{
+  "collectionName": "components_shared_headline_items",
+  "info": {
+    "displayName": "Headline Item"
+  },
+  "options": {},
+  "attributes": {
+    "Text": {
+      "type": "string"
+    }
+  },
+  "config": {}
+}

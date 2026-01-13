@@ -1,0 +1,25 @@
+{
+  "kind": "singleType",
+  "collectionName": "marquees",
+  "info": {
+    "singularName": "marquee",
+    "pluralName": "marquees",
+    "displayName": "Marquee"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "topRow": {
+      "type": "component",
+      "component": "shared.headline-item",
+      "repeatable": true
+    },
+    "bottomRow": {
+      "type": "component",
+      "component": "shared.headline-item",
+      "repeatable": true
+    }
+  }
+}
