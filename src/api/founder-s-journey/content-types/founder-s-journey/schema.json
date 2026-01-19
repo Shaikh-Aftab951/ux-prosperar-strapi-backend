@@ -1,0 +1,20 @@
+{
+  "kind": "singleType",
+  "collectionName": "founder_s_journeys",
+  "info": {
+    "singularName": "founder-s-journey",
+    "pluralName": "founder-s-journeys",
+    "displayName": "Founder's Journey"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Journey_Entry": {
+      "type": "component",
+      "component": "shared.journey-entry",
+      "repeatable": true
+    }
+  }
+}
