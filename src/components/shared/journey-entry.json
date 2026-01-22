@@ -1,0 +1,30 @@
+{
+  "collectionName": "components_shared_journey_entries",
+  "info": {
+    "displayName": "Journey Entry"
+  },
+  "options": {},
+  "attributes": {
+    "Period": {
+      "type": "string",
+      "required": true
+    },
+    "Company_Logo": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "Company": {
+      "type": "string",
+      "required": true
+    },
+    "Role": {
+      "type": "string",
+      "required": true
+    }
+  },
+  "config": {}
+}

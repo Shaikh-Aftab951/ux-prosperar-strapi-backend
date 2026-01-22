@@ -11,6 +11,29 @@ export interface SharedButtons extends Struct.ComponentSchema {
   };
 }
 
+export interface SharedHeadlineItem extends Struct.ComponentSchema {
+  collectionName: 'components_shared_headline_items';
+  info: {
+    displayName: 'Headline Item';
+  };
+  attributes: {
+    Text: Schema.Attribute.String;
+  };
+}
+
+export interface SharedJourneyEntry extends Struct.ComponentSchema {
+  collectionName: 'components_shared_journey_entries';
+  info: {
+    displayName: 'Journey Entry';
+  };
+  attributes: {
+    Company: Schema.Attribute.String & Schema.Attribute.Required;
+    Company_Logo: Schema.Attribute.Media<'images'> & Schema.Attribute.Required;
+    Period: Schema.Attribute.String & Schema.Attribute.Required;
+    Role: Schema.Attribute.String & Schema.Attribute.Required;
+  };
+}
+
 export interface SharedMedia extends Struct.ComponentSchema {
   collectionName: 'components_shared_media';
   info: {
@@ -89,6 +112,8 @@ declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
       'shared.buttons': SharedButtons;
+      'shared.headline-item': SharedHeadlineItem;
+      'shared.journey-entry': SharedJourneyEntry;
       'shared.media': SharedMedia;
       'shared.quote': SharedQuote;
       'shared.rich-text': SharedRichText;

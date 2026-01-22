@@ -1,0 +1,31 @@
+{
+  "kind": "collectionType",
+  "collectionName": "marquee_logos",
+  "info": {
+    "singularName": "marquee-logo",
+    "pluralName": "marquee-logos",
+    "displayName": "Marquee Logo"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Name": {
+      "type": "string",
+      "required": true
+    },
+    "Logo": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "Order": {
+      "type": "integer",
+      "required": true
+    }
+  }
+}
