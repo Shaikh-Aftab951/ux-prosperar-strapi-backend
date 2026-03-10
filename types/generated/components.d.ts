@@ -28,7 +28,7 @@ export interface SharedJourneyEntry extends Struct.ComponentSchema {
   };
   attributes: {
     Company: Schema.Attribute.String & Schema.Attribute.Required;
-    Company_Logo: Schema.Attribute.Media<'images'> & Schema.Attribute.Required;
+    Company_Logo: Schema.Attribute.Media<'images'>;
     Period: Schema.Attribute.String & Schema.Attribute.Required;
     Role: Schema.Attribute.String & Schema.Attribute.Required;
   };

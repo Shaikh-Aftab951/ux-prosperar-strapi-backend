@@ -12,29 +12,44 @@
   "pluginOptions": {},
   "attributes": {
     "Title": {
+      "type": "string",
+      "maxLength": 200,
+      "required": true
+    },
+    "Slug": {
+      "type": "uid",
+      "targetField": "Title",
+      "required": true
+    },
+    "Content": {
+      "type": "richtext",
+      "required": true
+    },
+    "ReadTime": {
+      "type": "string",
+      "default": "3 MINUTE READ",
+      "required": true
+    },
+    "Featured": {
+      "type": "boolean",
+      "default": false
+    },
+    "PublishDate": {
       "type": "string"
     },
-    "Text": {
-      "type": "blocks"
-    },
-    "Image": {
+    "CardImage": {
       "type": "media",
       "multiple": false,
       "allowedTypes": [
-        "images",
-        "files",
-        "videos",
-        "audios"
+        "images"
       ]
     },
-    "Published_Date": {
-      "type": "date"
-    },
-    "author": {
-      "type": "relation",
-      "relation": "manyToOne",
-      "target": "api::author.author",
-      "inversedBy": "blogs"
+    "HeroImage": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images"
+      ]
     }
   }
 }
