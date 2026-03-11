@@ -513,7 +513,6 @@ export interface ApiAuthorAuthor extends Struct.CollectionTypeSchema {
   attributes: {
     articles: Schema.Attribute.Relation<'oneToMany', 'api::article.article'>;
     avatar: Schema.Attribute.Media<'images' | 'files' | 'videos'>;
-    blogs: Schema.Attribute.Relation<'oneToMany', 'api::blog.blog'>;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -543,18 +542,27 @@ export interface ApiBlogBlog extends Struct.CollectionTypeSchema {
     draftAndPublish: true;
   };
   attributes: {
-    author: Schema.Attribute.Relation<'manyToOne', 'api::author.author'>;
+    CardImage: Schema.Attribute.Media<'images'>;
+    Content: Schema.Attribute.RichText & Schema.Attribute.Required;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    Image: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    Featured: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
+    HeroImage: Schema.Attribute.Media<'images'>;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<'oneToMany', 'api::blog.blog'> &
       Schema.Attribute.Private;
-    Published_Date: Schema.Attribute.Date;
+    PublishDate: Schema.Attribute.String;
     publishedAt: Schema.Attribute.DateTime;
-    Text: Schema.Attribute.Blocks;
-    Title: Schema.Attribute.String;
+    ReadTime: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.DefaultTo<'3 MINUTE READ'>;
+    Slug: Schema.Attribute.UID<'Title'> & Schema.Attribute.Required;
+    Title: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetMinMaxLength<{
+        maxLength: 200;
+      }>;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -738,7 +746,7 @@ export interface ApiMarqueeLogoMarqueeLogo extends Struct.CollectionTypeSchema {
       'api::marquee-logo.marquee-logo'
     > &
       Schema.Attribute.Private;
-    Logo: Schema.Attribute.Media<'images'> & Schema.Attribute.Required;
+    Logo: Schema.Attribute.Media<'images'>;
     Name: Schema.Attribute.String & Schema.Attribute.Required;
     Order: Schema.Attribute.Integer & Schema.Attribute.Required;
     publishedAt: Schema.Attribute.DateTime;
@@ -771,6 +779,37 @@ export interface ApiMarqueeMarquee extends Struct.SingleTypeSchema {
       Schema.Attribute.Private;
     publishedAt: Schema.Attribute.DateTime;
     topRow: Schema.Attribute.Component<'shared.headline-item', true>;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiProjectCardProjectCard extends Struct.CollectionTypeSchema {
+  collectionName: 'project_cards';
+  info: {
+    displayName: 'Project Card';
+    pluralName: 'project-cards';
+    singularName: 'project-card';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    BackImage: Schema.Attribute.Media<'images'>;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    FrontImage: Schema.Attribute.Media<'images'>;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::project-card.project-card'
+    > &
+      Schema.Attribute.Private;
+    Order: Schema.Attribute.Integer & Schema.Attribute.Required;
+    publishedAt: Schema.Attribute.DateTime;
+    Title: Schema.Attribute.String & Schema.Attribute.Required;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -1331,6 +1370,7 @@ declare module '@strapi/strapi' {
       'api::hero-section.hero-section': ApiHeroSectionHeroSection;
       'api::marquee-logo.marquee-logo': ApiMarqueeLogoMarqueeLogo;
       'api::marquee.marquee': ApiMarqueeMarquee;
+      'api::project-card.project-card': ApiProjectCardProjectCard;
       'api::team-member.team-member': ApiTeamMemberTeamMember;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;
