@@ -11,6 +11,19 @@ export interface SharedButtons extends Struct.ComponentSchema {
   };
 }
 
+export interface SharedContentBlock extends Struct.ComponentSchema {
+  collectionName: 'components_shared_content_blocks';
+  info: {
+    displayName: 'ContentBlock';
+  };
+  attributes: {
+    contentBlocksTitle: Schema.Attribute.Blocks;
+    image: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    imagePosition: Schema.Attribute.Enumeration<['left', 'right', 'middle']>;
+    text: Schema.Attribute.Blocks;
+  };
+}
+
 export interface SharedHeadlineItem extends Struct.ComponentSchema {
   collectionName: 'components_shared_headline_items';
   info: {
@@ -112,6 +125,7 @@ declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
       'shared.buttons': SharedButtons;
+      'shared.content-block': SharedContentBlock;
       'shared.headline-item': SharedHeadlineItem;
       'shared.journey-entry': SharedJourneyEntry;
       'shared.media': SharedMedia;

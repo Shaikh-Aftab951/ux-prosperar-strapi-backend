@@ -1,0 +1,28 @@
+{
+  "kind": "collectionType",
+  "collectionName": "services_we_offers",
+  "info": {
+    "singularName": "services-we-offer",
+    "pluralName": "services-we-offers",
+    "displayName": "ServicesWeOffer"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "order": {
+      "type": "biginteger"
+    },
+    "service_details": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::service-detail.service-detail",
+      "mappedBy": "services_we_offer"
+    }
+  }
+}

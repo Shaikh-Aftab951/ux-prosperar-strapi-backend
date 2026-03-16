@@ -1,0 +1,53 @@
+{
+  "kind": "collectionType",
+  "collectionName": "service_details",
+  "info": {
+    "singularName": "service-detail",
+    "pluralName": "service-details",
+    "displayName": "ServiceDetails"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "text"
+    },
+    "description": {
+      "type": "text"
+    },
+    "order": {
+      "type": "integer"
+    },
+    "services_we_offer": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::services-we-offer.services-we-offer",
+      "inversedBy": "service_details"
+    },
+    "showArrow": {
+      "type": "boolean"
+    },
+    "hasDetailsPage": {
+      "type": "boolean"
+    },
+    "slug": {
+      "type": "uid"
+    },
+    "heroTitle": {
+      "type": "text"
+    },
+    "heroSubtitle": {
+      "type": "text"
+    },
+    "fullDescription": {
+      "type": "text"
+    },
+    "contentSections": {
+      "type": "component",
+      "component": "shared.content-block",
+      "repeatable": true
+    }
+  }
+}
