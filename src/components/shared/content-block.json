@@ -1,0 +1,34 @@
+{
+  "collectionName": "components_shared_content_blocks",
+  "info": {
+    "displayName": "ContentBlock"
+  },
+  "options": {},
+  "attributes": {
+    "text": {
+      "type": "blocks"
+    },
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "imagePosition": {
+      "type": "enumeration",
+      "enum": [
+        "left",
+        "right",
+        "middle"
+      ]
+    },
+    "contentBlocksTitle": {
+      "type": "blocks"
+    }
+  },
+  "config": {}
+}

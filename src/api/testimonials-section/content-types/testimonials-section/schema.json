@@ -1,0 +1,21 @@
+{
+  "kind": "singleType",
+  "collectionName": "testimonials_sections",
+  "info": {
+    "singularName": "testimonials-section",
+    "pluralName": "testimonials-sections",
+    "displayName": "TestimonialsSection"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "heading": {
+      "type": "string"
+    },
+    "tagline": {
+      "type": "string"
+    }
+  }
+}
