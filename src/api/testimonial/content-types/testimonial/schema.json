@@ -11,12 +11,6 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "heading": {
-      "type": "string"
-    },
-    "paragraph": {
-      "type": "string"
-    },
     "name": {
       "type": "string"
     },
