@@ -1,0 +1,21 @@
+{
+  "kind": "collectionType",
+  "collectionName": "lets_chats",
+  "info": {
+    "singularName": "lets-chat",
+    "pluralName": "lets-chats",
+    "displayName": "lets-chat"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "heading": {
+      "type": "string"
+    },
+    "subheading": {
+      "type": "string"
+    }
+  }
+}
